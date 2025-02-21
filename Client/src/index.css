@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+body {
+  background-color: rgb(0, 1, 16);
+  padding:0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+*{
+  border: 1px solid red
+}
+*:focus {
+  outline: none;
+}
+width
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #ff0fff; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ffffff; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff; 
+}
