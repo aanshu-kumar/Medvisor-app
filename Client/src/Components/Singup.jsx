@@ -65,12 +65,12 @@ const Signup = () => {
 
   return (
     <div className="text-white">
-      <div className="w-[95%] flex justify-end">
+      <div className="w-[95%] flex justify-end flex-row">
         <img src={docimg} className="w-1/2 object-contain rounded-2xl" alt="Doctor"></img>
         {!loginState ? (
           <form
             onSubmit={handleSubmit}
-            className="w-[40%] mx-10 py-10 px-20 flex gap-5 flex-col bg-gray-950 backdrop-blur-2xl shadow-2xl shadow-gray-900 rounded-2xl">
+            className="w-[40%] mx-10 py-10 px-20 flex flex-col gap-5 bg-gray-950 backdrop-blur-2xl shadow-2xl shadow-gray-900 rounded-2xl">
             <p className="font-bold text-gray-500">START FOR FREE</p>
             <h2 className="text-5xl">
               Create an Account<strong className=" text-emerald-500">.</strong>

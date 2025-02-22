@@ -96,7 +96,7 @@ const Home = () => {
   }
 
   return (
-    <div className="w-full h-[42rem] text-white flex justify-center relative">
+    <div className="w-full h-[45rem] text-white flex justify-center relative">
       <div className="w-[100%] md:w-[55%] chatbox overflow-auto h-[80%] mt-[8px]">
         {chatLog.map((chat, index) =>
           chat.user == "Medvisor" ? (
