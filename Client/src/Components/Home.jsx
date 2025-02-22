@@ -16,6 +16,15 @@ const Home = () => {
   ]);
   const navigate = useNavigate();
   const chatEndRef = useRef(null);
+  useEffect(()=>{
+    const authToken = localStorage.getItem("auth-token");
+    if (!authToken) {
+      toast.error("You need to Login first!");
+      setLoading(false);
+      navigate("/signup");
+    }
+  },[navigate])
+
 
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -45,7 +54,7 @@ const Home = () => {
         ]);
       });
     } catch (error) {
-      toast.error("Error:", error);
+      console.error("Error:", error);
     }
   }
 
@@ -57,13 +66,9 @@ const Home = () => {
     e.preventDefault();
     setLoading(true);
     setChatLog((chatLog) => [...chatLog, { user: "You", message: `${input}` }]);
-    const authToken = localStorage.getItem("auth-token");
-    if (!authToken) {
-      toast.error("You need to Login first!");
-      setLoading(false);
-      navigate("/signup");
-    }
+    
     try {
+      const authToken = localStorage.getItem("auth-token");
       const response = await fetch(`${chat_bot_url}/completions`, {
         method: "POST",
         headers: {
@@ -87,7 +92,7 @@ const Home = () => {
       setInput("");
     } catch (error) {
       setLoading(false);
-      toast.error("Error:", error);
+      console.error("Error:", error);
     }
   }
 
@@ -118,7 +123,7 @@ const Home = () => {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           rows={"1"}
-          className="w-[100%] md:w-[60%] bg-[#507554]  placeholder-[#F5EFE6] outline-none rounded-xl shadow-white shadow margin-[12px] px-[30px] py-[5px] pt-[7px] text-lg text-white border-[#dbdbda] border-spacing-10 border-4"
+          className="w-[100%] md:w-[60%] bg-gray-900  placeholder-[#F5EFE6] outline-none rounded-xl shadow-white shadow margin-[12px] px-[30px] py-[5px] pt-[7px] text-lg text-white border-green-500 border-spacing-10 border-2"
           placeholder="Enter your message here"></input>
       </form>
       {/* warning message */}
