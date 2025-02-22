@@ -31,7 +31,10 @@ function App() {
 
   return (
     <>
-      <ToastContainer />
+      <ToastContainer 
+        position="top-center"
+        autoClose="1500"
+      />
       <nav className="z-40 w-full sticky top-0 text-white flex flex-row items-center justify-between py-2 mx-auto ">
         <h1 className="text-2xl text-emerald-600 font-bold">Medvisor</h1>
         <div className="flex flex-row items-center gap-5">
