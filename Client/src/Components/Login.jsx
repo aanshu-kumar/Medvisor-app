@@ -48,7 +48,7 @@ const Login = ({ setLogin }) => {
         password: "",
       });
       toast.success(responseData.msg);
-      navigate("/"); // Redirect to homepage or protected route
+      navigate("/chat"); // Redirect to homepage or protected route
     } catch (error) {
       toast.error(error.message);
       console.error("Error:", error);

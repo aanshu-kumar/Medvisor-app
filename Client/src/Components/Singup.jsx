@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux"; 
-import { setAuthToken } from "../redux/slice/authSlice"; 
+import { useDispatch } from "react-redux";
+import { setAuthToken } from "../redux/slice/authSlice";
 import docimg from "../Assets/docimg.png";
 import Login from "./Login";
+import { toast } from "react-toastify";
 
 const Signup = () => {
   const signup_url = "http://localhost:3000/api/user/signup";
@@ -19,8 +20,6 @@ const Signup = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
- 
-  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -54,19 +53,20 @@ const Signup = () => {
         email: "",
         password: "",
       });
-
-      navigate("/");
+      toast.success(responseData.msg);
+      navigate("/chat");
     } catch (error) {
-      console.error("Error:", error);
+      toast.error("Error:", error);
     }
-
   };
-
 
   return (
     <div className="text-white">
-      <div className="w-[95%] flex justify-end flex-row">
-        <img src={docimg} className="w-1/2 object-contain rounded-2xl" alt="Doctor"></img>
+      <div className="w-[95%] flex justify-end">
+        <img
+          src={docimg}
+          className="w-1/2 object-contain rounded-2xl"
+          alt="Doctor"></img>
         {!loginState ? (
           <form
             onSubmit={handleSubmit}
